@@ -1,0 +1,4 @@
+type touchfeature_device, dev_type;
+
+# MIGT
+type migt_device, dev_type;
