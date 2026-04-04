@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Настройки планшета</string>
+
+    <!-- Xiaomi Stylus -->
+    <string name="stylus_notification_channel">Стилус Xiaomi</string>
+    <string name="stylus_name">Стилус Xiaomi</string>
+    <string name="stylus_detect_notification">Подключить стилус?</string>
+    <string name="stylus_enable_compatible_stylus_title">Совместимый стилус</string>
+    <string name="stylus_enable_compatible_stylus_summary">Поддержка стилуса всегда активна, даже без подключения Xiaomi Stylus. Требуется перезагрузка.</string>
+
+    <!-- Xiaomi Keyboard -->
+    <string name="keyboard_title">Клавиатура Xiaomi</string>
+    <string name="keyboard_switch_title">Включить клавиатуру Xiaomi</string>
+
+    <!-- Button -->
+    <string name="button_control_title">Кнопки гарнитуры и стилуса</string>
+    <string name="headset_button_title">Кнопки громкости гарнитуры</string>
+    <string name="headset_button_disable">Отключить</string>
+    <string name="headset_button_volume">Громкость</string>
+    <string name="headset_button_music">Переключение треков</string>
+    <string name="stylus_button_title">Кнопка стилуса</string>
+    <string name="stylus_button_default">По умолчанию</string>
+    <string name="stylus_button_updown">Вверх/Вниз</string>
+    <string name="stylus_button_volume">Громкость</string>
+    <string name="stylus_button_music">Переключение треков</string>
+
+    <!-- Stylus -->
+    <string name="stylus_hardware_version_title">Версия оборудования</string>
+    <string name="stylus_hardware_version_1">Xiaomi Smart Pen (1-е поколение)</string>
+    <string name="stylus_hardware_version_2">Xiaomi Smart Pen (2-е поколение)</string>
+
+    <!-- Summary -->
+    <string name="summary_enabled">Включено</string>
+    <string name="summary_disabled">Отключено</string>
+</resources>

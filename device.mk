@@ -7,12 +7,19 @@
 # A/B
 TARGET_IS_VAB := true
 
+# Signing keys (custom, not test-keys)
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/xiaomi/enuma/signing/releasekey
+PRODUCT_OTA_PUBLIC_KEYS := vendor/xiaomi/enuma/signing/releasekey
+
+
 # Is tablet (false because enuma has cellular modem)
 TARGET_IS_TABLET := false
 
 # Inherit from sm8250-common
 $(call inherit-product, device/xiaomi/sm8250-common/kona.mk)
 
+# No NFC on enuma
+PRODUCT_PACKAGES_REMOVE += NfcNci
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal

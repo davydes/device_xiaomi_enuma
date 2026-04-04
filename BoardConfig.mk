@@ -40,5 +40,10 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
 # Wi-Fi
 SOONG_CONFIG_XIAOMI_KONA_WIFI_SYMLINK_VERSION := v2
 
+# SELinux enforcing (validated: 0 denials in permissive boot)
+
+# Recovery (QTI DRM backend for dual DSI CPHY display)
+$(call soong_config_set_bool,recovery,target_recovery_uses_qti_drm,true)
+
 # Inherit from the proprietary version
 include vendor/xiaomi/enuma/BoardConfigVendor.mk
