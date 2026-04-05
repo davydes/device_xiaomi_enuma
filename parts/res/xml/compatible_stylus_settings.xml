@@ -18,9 +18,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/stylus_enable_compatible_stylus_title">
 
-    <com.android.settingslib.widget.MainSwitchPreference
+    <SwitchPreference
         android:key="compatible_stylus_enable"
         android:defaultValue="false"
-        android:title="@string/stylus_enable_compatible_stylus_title" />
+        android:title="@string/stylus_enable_compatible_stylus_title"
+        android:summary="@string/stylus_enable_compatible_stylus_summary" />
 
 </PreferenceScreen>

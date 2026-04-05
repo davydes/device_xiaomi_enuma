@@ -7,3 +7,10 @@ on boot
 
     # Torch
     chown cameraserver cameraserver /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/led:torch_0/max_brightness
+
+# USB Host Mode toggle (MiPadParts controls via persist.vendor.usb.host.enabled)
+on property:persist.vendor.usb.host.enabled=0
+    write /sys/bus/platform/devices/a800000.ssusb/mode none
+
+on property:persist.vendor.usb.host.enabled=1
+    write /sys/bus/platform/devices/a800000.ssusb/mode host

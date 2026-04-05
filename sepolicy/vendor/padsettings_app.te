@@ -3,3 +3,6 @@ hal_client_domain(padsettings_app, hal_peripherals)
 
 # Allow padsettings_app to read sysfs_keyboard_status
 allow padsettings_app sysfs_keyboard_status:file r_file_perms;
+
+# Allow padsettings_app to set USB host mode property
+set_prop(padsettings_app, vendor_usb_host_prop)

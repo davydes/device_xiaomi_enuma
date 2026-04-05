@@ -27,6 +27,7 @@ import java.util.Map;
 
 import org.lineageos.pad_parts.keyboard.KeyboardUtils;
 import org.lineageos.pad_parts.stylus.StylusUtils;
+import org.lineageos.pad_parts.usb.UsbHostUtils;
 
 import static com.android.settingslib.drawer.SwitchesProvider.METHOD_GET_DYNAMIC_SUMMARY;
 // import static com.android.settingslib.drawer.SwitchesProvider.METHOD_IS_CHECKED;
@@ -40,6 +41,7 @@ public final class SettingsUtils {
 
     public static final String KEYBOARD_ENABLE = "keyboard_enable";
     public static final String COMPATIBLE_STYLUS_ENABLE = "compatible_stylus_enable";
+    public static final String USB_HOST_ENABLE = "usb_host_enable";
 
     public static final Uri SETTINGS_AUTHORITY_URI =
             Uri.parse("content://org.lineageos.pad_parts.settings");
@@ -48,7 +50,8 @@ public final class SettingsUtils {
 
     public static boolean isValidSwitchKey(String key) {
         return KEYBOARD_ENABLE.equals(key)
-                || COMPATIBLE_STYLUS_ENABLE.equals(key);
+                || COMPATIBLE_STYLUS_ENABLE.equals(key)
+                || USB_HOST_ENABLE.equals(key);
     }
 
     public static boolean isSettingEnabled(Context context, String prefKey) {
@@ -66,7 +69,6 @@ public final class SettingsUtils {
             return;
         }
 
-        // put to shared preference
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit().putBoolean(prefKey, enabled).commit();
 
@@ -111,6 +113,9 @@ public final class SettingsUtils {
         switch (key) {
             case KEYBOARD_ENABLE:
                 KeyboardUtils.checkKeyboardService(context);
+                break;
+            case USB_HOST_ENABLE:
+                UsbHostUtils.applyUsbHostMode(context);
                 break;
         }
     }

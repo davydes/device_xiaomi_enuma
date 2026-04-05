@@ -45,6 +45,13 @@
     <string name="stylus_hardware_version_1">Xiaomi Smart Pen (gen 1)</string>
     <string name="stylus_hardware_version_2">Xiaomi Smart Pen (gen 2)</string>
 
+    <!-- USB Host -->
+    <string name="usb_host_title">USB Host Mode (OTG)</string>
+    <string name="usb_host_switch_title">Enable USB OTG (Host Mode)</string>
+    <string name="usb_host_summary_on">OTG enabled — USB devices supported, higher battery drain</string>
+    <string name="usb_host_summary_off">OTG disabled — better battery life</string>
+    <string name="usb_host_error">USB OTG: permission denied, firmware update required</string>
+
     <!-- Summary -->
     <string name="summary_enabled">Enabled</string>
     <string name="summary_disabled">Disabled</string>
