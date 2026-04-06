@@ -26,7 +26,6 @@
 
     <!-- Xiaomi Keyboard -->
     <string name="keyboard_title">小米键盘式双面保护壳</string>
-    <string name="keyboard_switch_title">启用键盘式双面保护壳</string>
 
     <!-- Button -->
     <string name="button_control_title">耳机线控及手写笔按键</string>
@@ -44,6 +43,9 @@
     <string name="stylus_hardware_version_title">硬件版本</string>
     <string name="stylus_hardware_version_1">小米灵感触控笔一代</string>
     <string name="stylus_hardware_version_2">小米灵感触控笔二代</string>
+
+    <!-- USB Host -->
+    <string name="usb_host_title">USB Host Mode (OTG)</string>
 
     <!-- Summary -->
     <string name="summary_enabled">已启用</string>

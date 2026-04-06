@@ -87,7 +87,7 @@
             </intent-filter>
             <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.connect" />
+                android:value="com.android.settings.category.ia.development" />
             <meta-data
                 android:name="com.android.settings.switch_uri"
                 android:value="content://org.lineageos.pad_parts.settings" />
@@ -99,10 +99,7 @@
                 android:value="compatible_stylus_enable" />
             <meta-data
                 android:name="com.android.settings.profile"
-                android:value="primary_profile_only" />
-            <meta-data
-                android:name="com.android.settings.order"
-                android:value="3" />                
+                android:value="primary_profile_only" />                
         </activity>
 
         <activity
@@ -127,7 +124,7 @@
                 android:value="usb_host_enable" />
             <meta-data
                 android:name="com.android.settings.order"
-                android:value="3" />
+                android:value="99" />
         </activity>
 
         <activity

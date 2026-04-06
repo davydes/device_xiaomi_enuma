@@ -11,7 +11,6 @@
 
     <!-- Xiaomi Keyboard -->
     <string name="keyboard_title">Клавиатура Xiaomi</string>
-    <string name="keyboard_switch_title">Включить клавиатуру Xiaomi</string>
 
     <!-- Button -->
     <string name="button_control_title">Кнопки гарнитуры и стилуса</string>
@@ -32,10 +31,6 @@
 
     <!-- USB Host -->
     <string name="usb_host_title">USB Host Mode (OTG)</string>
-    <string name="usb_host_switch_title">Включить USB OTG (Host Mode)</string>
-    <string name="usb_host_summary_on">OTG включён — поддержка USB устройств, повышенный расход батареи</string>
-    <string name="usb_host_summary_off">OTG выключен — экономия батареи</string>
-    <string name="usb_host_error">USB OTG: нет разрешения, требуется обновление прошивки</string>
 
     <!-- Summary -->
     <string name="summary_enabled">Включено</string>

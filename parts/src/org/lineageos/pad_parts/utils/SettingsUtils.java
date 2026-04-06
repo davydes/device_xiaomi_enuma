@@ -59,6 +59,14 @@ public final class SettingsUtils {
             return false;
         }
 
+        if (USB_HOST_ENABLE.equals(prefKey)) {
+            // Single source of truth: system property
+            // Empty/unset = kernel default = host enabled = true
+            String val = android.os.SystemProperties.get(
+                    "persist.vendor.usb.host.enabled", "1");
+            return "1".equals(val);
+        }
+
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(prefKey, false);
     }
@@ -66,6 +74,13 @@ public final class SettingsUtils {
     public static void setSettingEnabled(Context context, String prefKey, boolean enabled) {
         if (DEBUG) Log.d(TAG, "setSettingEnabled: " + prefKey + " enabled: " + enabled);
         if (context == null || !isValidSwitchKey(prefKey)) {
+            return;
+        }
+
+        if (USB_HOST_ENABLE.equals(prefKey)) {
+            // Write directly to system property, no SharedPreferences
+            UsbHostUtils.applyUsbHostMode(enabled);
+            notifySettingChange(context, prefKey);
             return;
         }
 
@@ -113,9 +128,6 @@ public final class SettingsUtils {
         switch (key) {
             case KEYBOARD_ENABLE:
                 KeyboardUtils.checkKeyboardService(context);
-                break;
-            case USB_HOST_ENABLE:
-                UsbHostUtils.applyUsbHostMode(context);
                 break;
         }
     }
