@@ -63,6 +63,10 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set, xiaomi_enuma_peripherals, stylus_use_old_driver, true)
 
+# Stylus button bridge (BLE keyboard -> BTN_STYLUS via uinput)
+PRODUCT_PACKAGES += \
+    stylus-bridge
+
 # Rootdir
 PRODUCT_PACKAGES += \
     init.enuma.rc

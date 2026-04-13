@@ -1,0 +1,7 @@
+cc_binary {
+    name: "stylus-bridge",
+    srcs: ["main.c"],
+    vendor: true,
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Werror"],
+}

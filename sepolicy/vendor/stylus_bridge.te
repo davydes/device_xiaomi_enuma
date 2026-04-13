@@ -1,0 +1,17 @@
+type stylus_bridge, domain;
+type stylus_bridge_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(stylus_bridge)
+
+# Read /dev/input/ directory and watch for new devices
+allow stylus_bridge input_device:dir { r_dir_perms watch };
+allow stylus_bridge input_device:chr_file { r_file_perms ioctl };
+
+# Create and write uinput virtual device
+allow stylus_bridge uhid_device:chr_file rw_file_perms;
+
+# /dev/input is tmpfs — opendir + inotify
+allow stylus_bridge tmpfs:dir { open read search watch };
+
+# Connect to logd socket for logging
+unix_socket_connect(stylus_bridge, logdw, logd)

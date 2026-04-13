@@ -4,6 +4,9 @@
 # Peripherals
 /vendor/bin/hw/vendor\.xiaomi_enuma\.peripherals@1\.0-service\.default  u:object_r:hal_peripherals_default_exec:s0
 
+# Stylus bridge
+/vendor/bin/stylus-bridge                                               u:object_r:stylus_bridge_exec:s0
+
 # GNSS (Qualcomm - handled by sm8250-common sepolicy)
 
 # MIGT

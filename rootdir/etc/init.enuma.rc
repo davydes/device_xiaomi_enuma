@@ -14,3 +14,16 @@ on property:persist.vendor.usb.host.enabled=0
 
 on property:persist.vendor.usb.host.enabled=1
     write /sys/bus/platform/devices/a800000.ssusb/mode host
+
+# Stylus button bridge (BLE keyboard -> BTN_STYLUS via uinput)
+service stylus-bridge /vendor/bin/stylus-bridge
+    class main
+    user root
+    group input
+    disabled
+
+on property:sys.boot_completed=1
+    # Allow stylus-bridge (group input) to access /dev/uinput
+    chown root input /dev/uinput
+    chmod 0660 /dev/uinput
+    start stylus-bridge
