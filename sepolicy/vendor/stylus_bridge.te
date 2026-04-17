@@ -13,5 +13,8 @@ allow stylus_bridge uhid_device:chr_file rw_file_perms;
 # /dev/input is tmpfs — opendir + inotify
 allow stylus_bridge tmpfs:dir { open read search watch };
 
+# Read button mode property
+get_prop(stylus_bridge, vendor_stylus_prop)
+
 # Connect to logd socket for logging
 unix_socket_connect(stylus_bridge, logdw, logd)

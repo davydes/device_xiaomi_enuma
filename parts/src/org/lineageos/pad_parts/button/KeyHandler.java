@@ -35,8 +35,6 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private static final int HEADSET_BUTTON_UP = 257;
     private static final int HEADSET_BUTTON_DOWN = 258;
-    private static final int STYLUS_BUTTON_UP = 104;
-    private static final int STYLUS_BUTTON_DOWN = 109;
 
     private final ContentResolver mContentResolver;
     private final InputManager mInputManager;
@@ -54,9 +52,6 @@ public class KeyHandler implements DeviceKeyHandler {
             case HEADSET_BUTTON_UP:
             case HEADSET_BUTTON_DOWN:
                 return handleHeadsetButtonEvent(event);
-            case STYLUS_BUTTON_UP:
-            case STYLUS_BUTTON_DOWN:
-                return handleStylusButtonEvent(event);
             default:
                 return event;
         }
@@ -79,40 +74,6 @@ public class KeyHandler implements DeviceKeyHandler {
                 keyCode = event.getScanCode() == HEADSET_BUTTON_UP
                         ? KeyEvent.KEYCODE_MEDIA_NEXT : KeyEvent.KEYCODE_MEDIA_PREVIOUS;
                 break;
-            default:
-                return null;
-        }
-
-        injectKeyInput(event, keyCode);
-        return null;
-    }
-
-    private KeyEvent handleStylusButtonEvent(KeyEvent event) {
-        final InputDevice device = mInputManager.getInputDevice(event.getDeviceId());
-        if (device == null || !isStylusDevice(device)) {
-            return event;
-        }
-        if (!ButtonUtils.isStylusButtonsEnabled(mContentResolver)) {
-            return null;
-        }
-
-        int keyCode;
-        switch (SettingsUtils.getConfigValueString(
-                mContentResolver, STYLUS_BUTTON, STYLUS_BUTTON_DEFAULT)) {
-            case STYLUS_BUTTON_UPDOWN:
-                keyCode = event.getScanCode() == STYLUS_BUTTON_UP
-                        ? KeyEvent.KEYCODE_DPAD_UP : KeyEvent.KEYCODE_DPAD_DOWN;
-                break;
-            case STYLUS_BUTTON_VOLUME:
-                keyCode = event.getScanCode() == STYLUS_BUTTON_UP
-                        ? KeyEvent.KEYCODE_VOLUME_UP : KeyEvent.KEYCODE_VOLUME_DOWN;
-                break;
-            case STYLUS_BUTTON_MUSIC:
-                keyCode = event.getScanCode() == STYLUS_BUTTON_UP
-                        ? KeyEvent.KEYCODE_MEDIA_NEXT : KeyEvent.KEYCODE_MEDIA_PREVIOUS;
-                break;
-            case STYLUS_BUTTON_DEFAULT:
-                return event;
             default:
                 return null;
         }

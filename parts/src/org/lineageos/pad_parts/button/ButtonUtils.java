@@ -20,9 +20,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.view.InputDevice;
 
 import java.util.Arrays;
@@ -30,8 +27,6 @@ import java.util.Arrays;
 import org.lineageos.pad_parts.Constants;
 import org.lineageos.pad_parts.R;
 import org.lineageos.pad_parts.utils.SettingsUtils;
-
-import static org.lineageos.pad_parts.stylus.StylusUtils.getStylusVersion;
 
 public class ButtonUtils {
 
@@ -43,14 +38,9 @@ public class ButtonUtils {
     protected static final String HEADSET_BUTTON_MUSIC = "music";
     protected static final String STYLUS_BUTTON = "stylus_button";
     protected static final String STYLUS_BUTTON_DEFAULT = "default";
-    protected static final String STYLUS_BUTTON_UPDOWN = "updown";
-    protected static final String STYLUS_BUTTON_VOLUME = "volume";
-    protected static final String STYLUS_BUTTON_MUSIC = "music";
 
-    protected static boolean isStylusButtonsEnabled(ContentResolver resolver) {
-        return Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.STYLUS_BUTTONS_ENABLED, 1, UserHandle.USER_CURRENT) == 1;
-    }
+    /* Property read by native stylus-bridge daemon — mode strings must match arrays.xml */
+    protected static final String PROP_STYLUS_BUTTON_MODE = "persist.vendor.stylus.button_mode";
 
     protected static boolean isHeadsetButtonDevice(InputDevice device) {
         if (device == null) {
@@ -60,14 +50,6 @@ public class ButtonUtils {
 
         return HEADSET_BUTTON_DEVICE_NAME.equals(deviceName)
                 || HEADSET_BUTTON_DEVICE_NAME_2.equals(deviceName);
-    }
-
-    public static boolean isStylusDevice(InputDevice device) {
-        if (device == null) {
-            return false;
-        }
-
-        return getStylusVersion(device) != -1;
     }
 
     public static String getButtonSettingsSummary(Context context) {
@@ -97,9 +79,7 @@ public class ButtonUtils {
         if (context == null) {
             return null;
         }
-        Resources res = context.getResources();
         ContentResolver resolver = context.getContentResolver();
-
         String configValue = SettingsUtils.getConfigValueString(resolver, key, defValue);
 
         String[] values = context.getResources().getStringArray(valuesResId);

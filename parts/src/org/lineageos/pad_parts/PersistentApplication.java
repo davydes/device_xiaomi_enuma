@@ -18,10 +18,13 @@
 package org.lineageos.pad_parts;
 
 import android.app.Application;
+import android.os.SystemProperties;
 import android.util.Log;
 
+import org.lineageos.pad_parts.button.ButtonUtils;
 import org.lineageos.pad_parts.keyboard.KeyboardUtils;
 import org.lineageos.pad_parts.stylus.StylusUtils;
+import org.lineageos.pad_parts.utils.SettingsUtils;
 
 public class PersistentApplication extends Application {
 
@@ -35,5 +38,10 @@ public class PersistentApplication extends Application {
 
         KeyboardUtils.checkKeyboardService(this);
         StylusUtils.checkStylusService(this);
+
+        // Sync stylus button mode to system property for native stylus-bridge
+        String mode = SettingsUtils.getConfigValueString(
+                getContentResolver(), ButtonUtils.STYLUS_BUTTON, ButtonUtils.STYLUS_BUTTON_DEFAULT);
+        SystemProperties.set(ButtonUtils.PROP_STYLUS_BUTTON_MODE, mode);
     }
 }

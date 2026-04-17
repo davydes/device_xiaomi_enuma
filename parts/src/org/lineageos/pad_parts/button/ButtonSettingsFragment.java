@@ -17,8 +17,10 @@
 package org.lineageos.pad_parts.button;
 
 import android.os.Bundle;
-
+import android.os.SystemProperties;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.util.Log;
 
 import org.lineageos.pad_parts.R;
 
@@ -30,6 +32,15 @@ public class ButtonSettingsFragment extends PreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.button_settings);
-    }
 
+        Preference stylusPref = findPreference(ButtonUtils.STYLUS_BUTTON);
+        if (stylusPref != null) {
+            stylusPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                String mode = (String) newValue;
+                if (DEBUG) Log.d(TAG, "Stylus button mode -> " + mode);
+                SystemProperties.set(ButtonUtils.PROP_STYLUS_BUTTON_MODE, mode);
+                return true;
+            });
+        }
+    }
 }
