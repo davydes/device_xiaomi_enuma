@@ -6,3 +6,6 @@ allow padsettings_app sysfs_keyboard_status:file r_file_perms;
 
 # Allow padsettings_app to set USB host mode property
 set_prop(padsettings_app, vendor_usb_host_prop)
+
+# Allow padsettings_app to set stylus button mode property
+set_prop(padsettings_app, vendor_stylus_prop)

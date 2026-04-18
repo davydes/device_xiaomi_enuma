@@ -17,7 +17,6 @@
 package org.lineageos.pad_parts.button;
 
 import android.os.Bundle;
-import android.os.SystemProperties;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.util.Log;
@@ -38,7 +37,7 @@ public class ButtonSettingsFragment extends PreferenceFragment {
             stylusPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 String mode = (String) newValue;
                 if (DEBUG) Log.d(TAG, "Stylus button mode -> " + mode);
-                SystemProperties.set(ButtonUtils.PROP_STYLUS_BUTTON_MODE, mode);
+                ButtonUtils.applyStylusButtonMode(mode);
                 return true;
             });
         }

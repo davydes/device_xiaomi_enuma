@@ -20,6 +20,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
+import android.os.SystemProperties;
+import android.util.Log;
 import android.view.InputDevice;
 
 import java.util.Arrays;
@@ -40,7 +42,23 @@ public class ButtonUtils {
     protected static final String STYLUS_BUTTON_DEFAULT = "default";
 
     /* Property read by native stylus-bridge daemon — mode strings must match arrays.xml */
-    protected static final String PROP_STYLUS_BUTTON_MODE = "persist.vendor.stylus.button_mode";
+    public static final String PROP_STYLUS_BUTTON_MODE = "persist.vendor.stylus.button_mode";
+
+    private static final String TAG = "ButtonUtils";
+
+    public static void applyStylusButtonMode(String mode) {
+        try {
+            SystemProperties.set(PROP_STYLUS_BUTTON_MODE,
+                    mode != null ? mode : STYLUS_BUTTON_DEFAULT);
+        } catch (Exception e) {
+            Log.e(TAG, "Cannot set stylus property", e);
+        }
+    }
+
+    public static void syncStylusButtonMode(Context context) {
+        String mode = SettingsUtils.getConfigValueString(context, STYLUS_BUTTON);
+        applyStylusButtonMode(mode);
+    }
 
     protected static boolean isHeadsetButtonDevice(InputDevice device) {
         if (device == null) {
@@ -66,7 +84,7 @@ public class ButtonUtils {
 
     public static String getHeadsetButtonConfigSummary(Context context) {
         return getArrayConfigSummary(context, R.array.headset_button_values,
-                R.array.headset_button_entries, HEADSET_BUTTON, HEADSET_BUTTON_MUSIC);
+                R.array.headset_button_entries, HEADSET_BUTTON, HEADSET_BUTTON_VOLUME);
     }
 
     public static String getStylusButtonConfigSummary(Context context) {
