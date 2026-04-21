@@ -10,8 +10,8 @@ TARGET_IS_VAB := true
 # Signing keys (custom, not test-keys)
 PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/xiaomi/enuma/signing/releasekey
 PRODUCT_OTA_PUBLIC_KEYS := vendor/xiaomi/enuma/signing/releasekey
-MAINLINE_SEPOLICY_DEV_CERTIFICATES := vendor/xiaomi/enuma/signing
-MAINLINE_BLUETOOTH_SEPOLICY_DEV_CERTIFICATES := vendor/xiaomi/enuma/signing
+PRODUCT_MAINLINE_SEPOLICY_DEV_CERTIFICATES := vendor/xiaomi/enuma/signing
+PRODUCT_MAINLINE_BLUETOOTH_SEPOLICY_DEV_CERTIFICATES := vendor/xiaomi/enuma/signing
 
 
 # Is tablet (false because enuma has cellular modem)
