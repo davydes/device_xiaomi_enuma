@@ -26,8 +26,7 @@ genfscon sysfs /devices/platform/soc/a94000.i2c/i2c-5/5-0055/verify_digest      
 # Xiaomi Keyboard
 genfscon sysfs /devices/platform/soc/soc:xiaomi_keyboard/xiaomi_keyboard_conn_status                   u:object_r:sysfs_keyboard_status:s0
 
-# Axion Performance mode
-genfscon proc /sys/vm/dirty_writeback_centisecs     u:object_r:proc_dirty:s0
+# Axion Performance mode (dirty_writeback_centisecs already in system sepolicy)
 genfscon proc /sys/vm/vfs_cache_pressure            u:object_r:proc_drop_caches:s0
 genfscon proc /sys/vm/dirty_ratio                   u:object_r:proc_dirty:s0
 genfscon proc /sys/kernel/sched_migration_cost_ns   u:object_r:proc_sched:s0

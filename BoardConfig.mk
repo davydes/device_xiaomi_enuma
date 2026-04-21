@@ -16,6 +16,7 @@ TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_SCREEN_DENSITY := 360
 
 # Kernel
+TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_CONFIG += vendor/xiaomi/enuma.config
 
 # OTA assert
@@ -23,6 +24,7 @@ TARGET_OTA_ASSERT_DEVICE := enuma
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # Override sm8250-common vendor_phone.prop (single SIM instead of DSDS)
 TARGET_VENDOR_PROP := $(filter-out device/xiaomi/sm8250-common/vendor_phone.prop,$(TARGET_VENDOR_PROP))

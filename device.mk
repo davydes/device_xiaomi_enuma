@@ -10,6 +10,8 @@ TARGET_IS_VAB := true
 # Signing keys (custom, not test-keys)
 PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/xiaomi/enuma/signing/releasekey
 PRODUCT_OTA_PUBLIC_KEYS := vendor/xiaomi/enuma/signing/releasekey
+MAINLINE_SEPOLICY_DEV_CERTIFICATES := vendor/xiaomi/enuma/signing
+MAINLINE_BLUETOOTH_SEPOLICY_DEV_CERTIFICATES := vendor/xiaomi/enuma/signing
 
 
 # Is tablet (false because enuma has cellular modem)
@@ -61,11 +63,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.xiaomi_enuma.peripherals@1.0-service.default
 
-$(call soong_config_set, xiaomi_enuma_peripherals, stylus_use_old_driver, true)
+$(call soong_config_set_bool, xiaomi_enuma_peripherals, stylus_use_old_driver, true)
 
 # Stylus button bridge (BLE keyboard -> BTN_STYLUS via uinput)
 PRODUCT_PACKAGES += \
     stylus-bridge
+
+# DSP Volume Synchronizer (syncs Android volume to Xiaomi DSP/Dolby)
+PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer
 
 # Rootdir
 PRODUCT_PACKAGES += \
