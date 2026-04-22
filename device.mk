@@ -7,6 +7,9 @@
 # A/B
 TARGET_IS_VAB := true
 
+# No vibrator motor on enuma
+TARGET_DISABLE_VIBRATOR := true
+
 # Signing keys (custom, not test-keys)
 PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/xiaomi/enuma/signing/releasekey
 PRODUCT_OTA_PUBLIC_KEYS := vendor/xiaomi/enuma/signing/releasekey
@@ -22,6 +25,10 @@ $(call inherit-product, device/xiaomi/sm8250-common/kona.mk)
 
 # No NFC on enuma
 PRODUCT_PACKAGES_REMOVE += NfcNci
+
+# No vibrator motor on enuma
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/unavailable-features.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/unavailable-features.xml
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal

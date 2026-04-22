@@ -29,4 +29,7 @@
 
     <!-- Whether sim related information is visible to the end user. -->
     <bool name="config_show_sim_info">true</bool>
+
+    <!-- No vibrator motor — hide vibration settings -->
+    <integer name="config_vibration_supported_intensity_levels">0</integer>
 </resources>

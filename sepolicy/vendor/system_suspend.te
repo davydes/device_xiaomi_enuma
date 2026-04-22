@@ -1,0 +1,7 @@
+# Suppress system_suspend denials when reading vendor wakeup source stats
+# system_suspend iterates all wakeup sources in sysfs; some are labeled
+# with vendor-specific types instead of sysfs_wakeup
+dontaudit system_suspend_server vendor_sysfs_fingerprint:file r_file_perms;
+dontaudit system_suspend_server vendor_sysfs_fingerprint:dir r_dir_perms;
+dontaudit system_suspend_server vendor_sysfs_battery_supply:file r_file_perms;
+dontaudit system_suspend_server vendor_sysfs_battery_supply:dir r_dir_perms;
