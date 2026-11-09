@@ -63,7 +63,7 @@ public final class SettingsUtils {
             // Single source of truth: system property
             // Empty/unset = kernel default = host enabled = true
             String val = android.os.SystemProperties.get(
-                    "persist.vendor.usb.host.enabled", "1");
+                    "persist.pad_parts.usb_host_enabled", "1");
             return "1".equals(val);
         }
 

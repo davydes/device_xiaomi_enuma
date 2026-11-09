@@ -6,7 +6,7 @@ import android.util.Log;
 public class UsbHostUtils {
 
     private static final String TAG = "UsbHostUtils";
-    private static final String PROP_USB_HOST = "persist.vendor.usb.host.enabled";
+    private static final String PROP_USB_HOST = "persist.pad_parts.usb_host_enabled";
 
     public static void applyUsbHostMode(boolean enabled) {
         try {

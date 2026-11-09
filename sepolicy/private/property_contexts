@@ -1,0 +1,2 @@
+persist.pad_parts.usb_host_enabled      u:object_r:pad_parts_usb_host_prop:s0 exact bool
+persist.pad_parts.stylus_button_mode    u:object_r:pad_parts_stylus_prop:s0 exact string

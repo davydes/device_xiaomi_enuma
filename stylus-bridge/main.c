@@ -6,7 +6,7 @@
  * Default mode: BTN_STYLUS/BTN_STYLUS2 for fusion with NVTCapacitivePen.
  * Other modes: volume, dpad up/down, media next/prev.
  *
- * Mode is read from persist.vendor.stylus.button_mode property.
+ * Mode is read from persist.pad_parts.stylus_button_mode property.
  * Device matched by vendor/product ID (not name).
  *
  * Uses inotify to wait for pen — zero CPU when pen absent.
@@ -32,7 +32,7 @@
 #define DEVICE_NAME       "xiaomi-stylus-bridge"
 #define INPUT_DIR         "/dev/input"
 #define MAX_PATH          256
-#define PROP_BUTTON_MODE  "persist.vendor.stylus.button_mode"
+#define PROP_BUTTON_MODE  "persist.pad_parts.stylus_button_mode"
 
 /* Xiaomi Smart Pen BLE identifiers */
 #define PEN_VENDOR     0x1915

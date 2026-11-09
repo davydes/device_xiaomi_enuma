@@ -42,7 +42,7 @@ public class ButtonUtils {
     protected static final String STYLUS_BUTTON_DEFAULT = "default";
 
     /* Property read by native stylus-bridge daemon — mode strings must match arrays.xml */
-    public static final String PROP_STYLUS_BUTTON_MODE = "persist.vendor.stylus.button_mode";
+    public static final String PROP_STYLUS_BUTTON_MODE = "persist.pad_parts.stylus_button_mode";
 
     private static final String TAG = "ButtonUtils";
 

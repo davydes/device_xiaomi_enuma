@@ -1,2 +1,0 @@
-persist.vendor.usb.host.    u:object_r:vendor_usb_host_prop:s0
-persist.vendor.stylus.      u:object_r:vendor_stylus_prop:s0

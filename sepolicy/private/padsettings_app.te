@@ -12,3 +12,7 @@ allow padsettings_app cgroup:file rw_file_perms;
 
 # Allow padsettings_app to access uevent
 allow padsettings_app self:netlink_kobject_uevent_socket { bind create read setopt };
+
+# Allow padsettings_app to set USB host mode and stylus button mode
+set_prop(padsettings_app, pad_parts_usb_host_prop)
+set_prop(padsettings_app, pad_parts_stylus_prop)
