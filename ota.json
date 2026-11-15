@@ -1,0 +1,18 @@
+[
+  {
+    "datetime": 1794727101,
+    "files": [
+      {
+        "filename": "lineage-24.0-20261115-UNOFFICIAL-enuma.zip",
+        "os_patch_level": "2026-11-01",
+        "os_sdk_level": 37,
+        "ota_property_files": "payload_metadata.bin:4379:127341,payload.bin:4379:1487126732,payload_properties.txt:1487131169:156,apex_info.pb:1957:1414,care_map.pb:3418:914,metadata:69:676,metadata.pb:813:1096",
+        "sha256": "c0bbd5337df257f7150aeecd9cb3a807f7dbe0d60061e4741a19e3c8decf8350",
+        "size": 1487134245,
+        "url": "https://github.com/davydes/device_xiaomi_enuma/releases/download/LOS24.0_20261115/lineage-24.0-20261115-UNOFFICIAL-enuma.zip"
+      }
+    ],
+    "type": "UNOFFICIAL",
+    "version": "24.0"
+  }
+]
